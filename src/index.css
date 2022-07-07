@@ -61,7 +61,7 @@ body {
   /* cursor: pointer; */
 }
 
-.task.terminado {
+.task.end {
   border-left: 5px solid green;
 }
 

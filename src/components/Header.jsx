@@ -10,7 +10,7 @@ const onClick = () => {
     return (
         <header className='header'>
             <h1 style = {{color: 'pink'}}> {titulo}</h1>
-            <Button color = 'purple' text = 'Nuevo' onClick={onClick}/>
+            <Button color = 'purple' text = 'New' onClick={onClick}/>
         </header>
     )
 }
