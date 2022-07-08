@@ -5,6 +5,8 @@ import AddTask from "./components/AddTask";
 
 function App() {
 
+  const [showAddTask, setShowAddTask] = useState(false)
+
   const [tasks, setTasks] = useState ([
     {
         id: 1,
@@ -27,8 +29,11 @@ function App() {
 ])
 
 //AddTask
-const addTask = (tarea) =>{
-  console.log(tarea)
+const addTask = (task) =>{
+  //console.log(tarea)
+  const id = Math.floor(Math.random()*10000) + 1
+  const newTask = {id, ...task}
+  setTasks([...tasks, newTask])
 }
 
 //Delete task
@@ -46,9 +51,9 @@ const toggleFinish = (id) =>{
 
 return (
 <div className='container'>
-    <Header titulo = 'Task'/>
+    <Header titulo = {'Task'} onAdd = {() => setShowAddTask(!showAddTask)} showAdd = {showAddTask}/>
+    {showAddTask && <AddTask onAdd = {addTask}/>}
     {tasks.length > 0 ?  (<Tasks tasks = {tasks} onDelete = {deleteTask} onToggle = {toggleFinish}/>) : 'You are the best (no tasks to do)'}
-    <AddTask onAdd = {addTask}/>
 </div>
   )
 }
